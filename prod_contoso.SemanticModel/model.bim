@@ -503,7 +503,7 @@
             "expression": [
               "",
               "COUNTROWS(",
-              "    DISTINCT(dim_customer[CustomerKey])",
+              "    SUMMARIZE( fct_sales, dim_customer[CustomerKey] )",
               ")"
             ],
             "formatString": "0",
@@ -653,6 +653,7 @@
             ],
             "dataType": "string",
             "lineageTag": "90340d6e-2cc1-4fc7-85d0-5d1d45f56ae4",
+            "sortByColumn": "YearMonthNumber",
             "sourceColumn": "YearMonthShort",
             "sourceLineageTag": "YearMonthShort",
             "sourceProviderType": "varchar(8000)",
