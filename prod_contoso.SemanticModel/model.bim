@@ -488,6 +488,24 @@
           }
         ],
         "lineageTag": "31032e67-4156-4b60-a370-a50ae7e6158e",
+        "measures": [
+          {
+            "name": "# Customer",
+            "changedProperties": [
+              {
+                "property": "Name"
+              }
+            ],
+            "expression": [
+              "",
+              "COUNTROWS(",
+              "    DISTINCT(dim_customer[CustomerKey])",
+              ")"
+            ],
+            "formatString": "0",
+            "lineageTag": "11ff0e7c-7d27-4e4f-bbac-313ce09cd307"
+          }
+        ],
         "partitions": [
           {
             "name": "dim_customer",

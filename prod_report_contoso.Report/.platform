@@ -1,11 +1,11 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
   "metadata": {
-    "type": "SemanticModel",
-    "displayName": "prod_semanticmodel_contoso"
+    "type": "Report",
+    "displayName": "prod_report_contoso"
   },
   "config": {
     "version": "2.0",
-    "logicalId": "d3d74af9-246b-4895-85c8-f6db559794c6"
+    "logicalId": "69f663bd-ddcd-452f-aafb-1edd0091dc29"
   }
 }

@@ -1,0 +1,9 @@
+{
+  "version": "4.0",
+  "datasetReference": {
+    "byPath": {
+      "path": "../prod_contoso.SemanticModel"
+    },
+    "byConnection": null
+  }
+}
