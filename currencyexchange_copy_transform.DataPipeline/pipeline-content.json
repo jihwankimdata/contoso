@@ -1,0 +1,143 @@
+{
+  "properties": {
+    "activities": [
+      {
+        "type": "Copy",
+        "typeProperties": {
+          "source": {
+            "type": "DelimitedTextSource",
+            "storeSettings": {
+              "type": "LakehouseReadSettings",
+              "recursive": true,
+              "enablePartitionDiscovery": false
+            },
+            "formatSettings": {
+              "type": "DelimitedTextReadSettings",
+              "skipLineCount": 0
+            },
+            "datasetSettings": {
+              "type": "DelimitedText",
+              "typeProperties": {
+                "location": {
+                  "type": "LakehouseLocation",
+                  "folderPath": "contoso",
+                  "fileName": "currencyexchange.csv"
+                },
+                "columnDelimiter": ",",
+                "quoteChar": "\"",
+                "escapeChar": "\\",
+                "firstRowAsHeader": true
+              },
+              "schema": [],
+              "linkedService": {
+                "properties": {
+                  "type": "Lakehouse",
+                  "typeProperties": {
+                    "artifactId": "84e789dc-861b-4781-b674-f0d13b5c6aa1",
+                    "workspaceId": "00000000-0000-0000-0000-000000000000",
+                    "rootFolder": "Files"
+                  },
+                  "annotations": []
+                },
+                "name": "bronze_contoso"
+              },
+              "annotations": []
+            }
+          },
+          "sink": {
+            "type": "LakehouseTableSink",
+            "tableActionOption": "OverwriteSchema",
+            "partitionOption": "PartitionByKey",
+            "partitionNameList": [
+              "Date"
+            ],
+            "datasetSettings": {
+              "type": "LakehouseTable",
+              "typeProperties": {
+                "table": "currencyexchange"
+              },
+              "schema": [],
+              "linkedService": {
+                "properties": {
+                  "type": "Lakehouse",
+                  "typeProperties": {
+                    "artifactId": "4b23e37d-af33-414b-966f-fc77fa08519f",
+                    "workspaceId": "00000000-0000-0000-0000-000000000000",
+                    "rootFolder": "Tables"
+                  },
+                  "annotations": []
+                },
+                "name": "silver_contoso"
+              },
+              "annotations": []
+            }
+          },
+          "translator": {
+            "type": "TabularTranslator",
+            "mappings": [
+              {
+                "source": {
+                  "name": "Date",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "Date",
+                  "physicalType": "date"
+                }
+              },
+              {
+                "source": {
+                  "name": "FromCurrency",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "FromCurrency",
+                  "physicalType": "string"
+                }
+              },
+              {
+                "source": {
+                  "name": "ToCurrency",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "ToCurrency",
+                  "physicalType": "string"
+                }
+              },
+              {
+                "source": {
+                  "name": "Exchange",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "Exchange",
+                  "physicalType": "float"
+                }
+              }
+            ],
+            "typeConversion": true,
+            "typeConversionSettings": {
+              "allowDataTruncation": true,
+              "treatBooleanAsNumber": false
+            }
+          },
+          "enableStaging": false
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "Copy_ri1",
+        "dependsOn": []
+      }
+    ]
+  }
+}

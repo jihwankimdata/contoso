@@ -1,0 +1,360 @@
+{
+  "properties": {
+    "activities": [
+      {
+        "type": "Copy",
+        "typeProperties": {
+          "source": {
+            "type": "DelimitedTextSource",
+            "storeSettings": {
+              "type": "LakehouseReadSettings",
+              "recursive": true,
+              "enablePartitionDiscovery": false
+            },
+            "formatSettings": {
+              "type": "DelimitedTextReadSettings",
+              "skipLineCount": 0
+            },
+            "datasetSettings": {
+              "type": "DelimitedText",
+              "typeProperties": {
+                "location": {
+                  "type": "LakehouseLocation",
+                  "folderPath": "contoso",
+                  "fileName": "customer.csv"
+                },
+                "columnDelimiter": ",",
+                "quoteChar": "\"",
+                "escapeChar": "\\",
+                "firstRowAsHeader": true
+              },
+              "schema": [],
+              "linkedService": {
+                "properties": {
+                  "type": "Lakehouse",
+                  "typeProperties": {
+                    "artifactId": "84e789dc-861b-4781-b674-f0d13b5c6aa1",
+                    "workspaceId": "00000000-0000-0000-0000-000000000000",
+                    "rootFolder": "Files"
+                  },
+                  "annotations": []
+                },
+                "name": "bronze_contoso"
+              },
+              "annotations": []
+            }
+          },
+          "sink": {
+            "type": "LakehouseTableSink",
+            "tableActionOption": "OverwriteSchema",
+            "partitionOption": "None",
+            "datasetSettings": {
+              "type": "LakehouseTable",
+              "typeProperties": {
+                "table": "customer"
+              },
+              "schema": [],
+              "linkedService": {
+                "properties": {
+                  "type": "Lakehouse",
+                  "typeProperties": {
+                    "artifactId": "4b23e37d-af33-414b-966f-fc77fa08519f",
+                    "workspaceId": "00000000-0000-0000-0000-000000000000",
+                    "rootFolder": "Tables"
+                  },
+                  "annotations": []
+                },
+                "name": "silver_contoso"
+              },
+              "annotations": []
+            }
+          },
+          "translator": {
+            "type": "TabularTranslator",
+            "mappings": [
+              {
+                "source": {
+                  "name": "CustomerKey",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "CustomerKey",
+                  "physicalType": "integer"
+                }
+              },
+              {
+                "source": {
+                  "name": "GeoAreaKey",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "GeoAreaKey",
+                  "physicalType": "integer"
+                }
+              },
+              {
+                "source": {
+                  "name": "StartDT",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "StartDT",
+                  "physicalType": "date"
+                }
+              },
+              {
+                "source": {
+                  "name": "EndDT",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "EndDT",
+                  "physicalType": "date"
+                }
+              },
+              {
+                "source": {
+                  "name": "Continent",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "Continent",
+                  "physicalType": "string"
+                }
+              },
+              {
+                "source": {
+                  "name": "Gender",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "Gender",
+                  "physicalType": "string"
+                }
+              },
+              {
+                "source": {
+                  "name": "Title",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "Title",
+                  "physicalType": "string"
+                }
+              },
+              {
+                "source": {
+                  "name": "GivenName",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "GivenName",
+                  "physicalType": "string"
+                }
+              },
+              {
+                "source": {
+                  "name": "MiddleInitial",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "MiddleInitial",
+                  "physicalType": "string"
+                }
+              },
+              {
+                "source": {
+                  "name": "Surname",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "Surname",
+                  "physicalType": "string"
+                }
+              },
+              {
+                "source": {
+                  "name": "StreetAddress",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "StreetAddress",
+                  "physicalType": "string"
+                }
+              },
+              {
+                "source": {
+                  "name": "City",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "City",
+                  "physicalType": "string"
+                }
+              },
+              {
+                "source": {
+                  "name": "State",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "State",
+                  "physicalType": "string"
+                }
+              },
+              {
+                "source": {
+                  "name": "StateFull",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "StateFull",
+                  "physicalType": "string"
+                }
+              },
+              {
+                "source": {
+                  "name": "ZipCode",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "ZipCode",
+                  "physicalType": "string"
+                }
+              },
+              {
+                "source": {
+                  "name": "Country",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "Country",
+                  "physicalType": "string"
+                }
+              },
+              {
+                "source": {
+                  "name": "CountryFull",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "CountryFull",
+                  "physicalType": "string"
+                }
+              },
+              {
+                "source": {
+                  "name": "Birthday",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "Birthday",
+                  "physicalType": "date"
+                }
+              },
+              {
+                "source": {
+                  "name": "Age",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "Age",
+                  "physicalType": "string"
+                }
+              },
+              {
+                "source": {
+                  "name": "Occupation",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "Occupation",
+                  "physicalType": "string"
+                }
+              },
+              {
+                "source": {
+                  "name": "Company",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "Company",
+                  "physicalType": "string"
+                }
+              },
+              {
+                "source": {
+                  "name": "Vehicle",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "Vehicle",
+                  "physicalType": "string"
+                }
+              },
+              {
+                "source": {
+                  "name": "Latitude",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "Latitude",
+                  "physicalType": "float"
+                }
+              },
+              {
+                "source": {
+                  "name": "Longitude",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "Longitude",
+                  "physicalType": "float"
+                }
+              }
+            ],
+            "typeConversion": true,
+            "typeConversionSettings": {
+              "allowDataTruncation": true,
+              "treatBooleanAsNumber": false
+            }
+          },
+          "enableStaging": false
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "Copy_9v5",
+        "dependsOn": []
+      }
+    ]
+  }
+}
