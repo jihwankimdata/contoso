@@ -17,6 +17,10 @@
       {
         "name": "PBI_ProTooling",
         "value": "[\"WebModelingEdit\"]"
+      },
+      {
+        "name": "__TEdtr",
+        "value": "1"
       }
     ],
     "collation": "Latin1_General_100_BIN2_UTF8",
@@ -499,7 +503,7 @@
             "expression": [
               "",
               "COUNTROWS(",
-              "    DISTINCT(dim_customer[CustomerKey])",
+              "    SUMMARIZE( fct_sales, dim_customer[CustomerKey] )",
               ")"
             ],
             "formatString": "0",
@@ -633,6 +637,7 @@
             ],
             "dataType": "string",
             "lineageTag": "2a7459b4-9e08-4e9d-b2ba-c9ad114f867d",
+            "sortByColumn": "YearMonthNumber",
             "sourceColumn": "YearMonth",
             "sourceLineageTag": "YearMonth",
             "sourceProviderType": "varchar(8000)",
