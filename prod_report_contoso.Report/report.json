@@ -1,0 +1,42 @@
+{
+  "config": "{\"version\":\"5.55\",\"themeCollection\":{\"baseTheme\":{\"name\":\"CY24SU06\",\"version\":\"5.56\",\"type\":2}},\"activeSectionIndex\":0,\"defaultDrillFilterOtherVisuals\":true,\"settings\":{\"useNewFilterPaneExperience\":true,\"allowChangeFilterTypes\":true,\"useStylableVisualContainerHeader\":true,\"queryLimitOption\":6,\"useEnhancedTooltips\":true,\"exportDataMode\":1,\"useDefaultAggregateDisplayName\":true},\"objects\":{\"section\":[{\"properties\":{\"verticalAlignment\":{\"expr\":{\"Literal\":{\"Value\":\"'Top'\"}}}}}]}}",
+  "layoutOptimization": 0,
+  "resourcePackages": [
+    {
+      "resourcePackage": {
+        "disabled": false,
+        "items": [
+          {
+            "name": "CY24SU06",
+            "path": "BaseThemes/CY24SU06.json",
+            "type": 202
+          }
+        ],
+        "name": "SharedResources",
+        "type": 2
+      }
+    }
+  ],
+  "sections": [
+    {
+      "config": "{}",
+      "displayName": "Page 1",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "5b276294fdcf150aa8cc",
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"b7a03e1ca5d402af4a13\",\"layouts\":[{\"id\":0,\"position\":{\"x\":839.9583213248499,\"y\":150.73846631343253,\"z\":0,\"width\":279.683419424923,\"height\":511.23949719555725,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"dim_date.YearMonthShort\"},{\"queryRef\":\"dim_customer.# Customer\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"dim_date\",\"Type\":0},{\"Name\":\"d1\",\"Entity\":\"dim_customer\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"YearMonthShort\"},\"Name\":\"dim_date.YearMonthShort\",\"NativeReferenceName\":\"YearMonthShort\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d1\"}},\"Property\":\"# Customer\"},\"Name\":\"dim_customer.# Customer\",\"NativeReferenceName\":\"# Customer\"}]},\"drillFilterOtherVisuals\":true}}",
+          "filters": "[]",
+          "height": 511.24,
+          "width": 279.68,
+          "x": 839.96,
+          "y": 150.74,
+          "z": 0.00
+        }
+      ],
+      "width": 1280.00
+    }
+  ]
+}
