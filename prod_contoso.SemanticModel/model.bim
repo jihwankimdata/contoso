@@ -503,7 +503,7 @@
             "expression": [
               "",
               "COUNTROWS(",
-              "    SUMMARIZE( fct_sales, dim_customer[CustomerKey] )",
+              "    DISTINCT(dim_customer[CustomerKey])",
               ")"
             ],
             "formatString": "0",
