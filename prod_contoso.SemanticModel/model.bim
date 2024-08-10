@@ -1619,6 +1619,75 @@
             }
           }
         ]
+      },
+      {
+        "name": "prm_metrics",
+        "columns": [
+          {
+            "name": "Parameter",
+            "dataType": "string",
+            "isDataTypeInferred": true,
+            "isNameInferred": false,
+            "lineageTag": "52529145-a16f-4939-a03b-dbb185e9f31e",
+            "relatedColumnDetails": {
+              "groupByColumns": [
+                {
+                  "groupingColumn": "Parameter Fields"
+                }
+              ]
+            },
+            "sortByColumn": "Parameter Order",
+            "sourceColumn": "[Value1]",
+            "type": "calculatedTableColumn"
+          },
+          {
+            "name": "Parameter Fields",
+            "dataType": "string",
+            "extendedProperties": [
+              {
+                "name": "ParameterMetadata",
+                "type": "json",
+                "value": {
+                  "kind": 2,
+                  "version": 3
+                }
+              }
+            ],
+            "isDataTypeInferred": true,
+            "isHidden": true,
+            "isNameInferred": false,
+            "lineageTag": "fc54813d-059c-478b-859d-440ef6902205",
+            "sortByColumn": "Parameter Order",
+            "sourceColumn": "[Value2]",
+            "type": "calculatedTableColumn"
+          },
+          {
+            "name": "Parameter Order",
+            "dataType": "int64",
+            "isDataTypeInferred": true,
+            "isHidden": true,
+            "isNameInferred": false,
+            "lineageTag": "23785533-3bdf-4858-a0ff-ae1f4633d5ad",
+            "sourceColumn": "[Value3]",
+            "type": "calculatedTableColumn"
+          }
+        ],
+        "lineageTag": "74531c34-482c-4e43-b58a-be578fc2417a",
+        "partitions": [
+          {
+            "name": "prm_metrics",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "{",
+                "    (\"Sales total\", NAMEOF('_measures'[Sales total]), 0),",
+                "    (\"# Customer\", NAMEOF('_measures'[# Customer]), 1)",
+                "}"
+              ],
+              "type": "calculated"
+            }
+          }
+        ]
       }
     ]
   }
