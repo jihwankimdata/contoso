@@ -492,24 +492,6 @@
           }
         ],
         "lineageTag": "31032e67-4156-4b60-a370-a50ae7e6158e",
-        "measures": [
-          {
-            "name": "# Customer",
-            "changedProperties": [
-              {
-                "property": "Name"
-              }
-            ],
-            "expression": [
-              "",
-              "COUNTROWS(",
-              "    SUMMARIZE( fct_sales, dim_customer[CustomerKey] )",
-              ")"
-            ],
-            "formatString": "0",
-            "lineageTag": "11ff0e7c-7d27-4e4f-bbac-313ce09cd307"
-          }
-        ],
         "partitions": [
           {
             "name": "dim_customer",
@@ -1479,19 +1461,6 @@
           }
         ],
         "lineageTag": "d90c9278-43e9-4998-9431-6d14dda9d963",
-        "measures": [
-          {
-            "name": "Sales total",
-            "expression": [
-              "",
-              "SUMX(",
-              "    fct_sales,",
-              "    fct_sales[Quantity] * fct_sales[UnitPrice]",
-              ")"
-            ],
-            "lineageTag": "d352b89f-5b05-47f0-b49f-8e539a4623da"
-          }
-        ],
         "partitions": [
           {
             "name": "fct_sales",
@@ -1595,6 +1564,61 @@
           }
         ],
         "sourceLineageTag": "[dbo].[fct_currencyexchange]"
+      },
+      {
+        "name": "_measures",
+        "columns": [
+          {
+            "name": "measures",
+            "dataType": "string",
+            "isDataTypeInferred": true,
+            "isHidden": true,
+            "isNameInferred": true,
+            "lineageTag": "e8eb517a-70b6-405e-a3f0-540f4d97b733",
+            "sourceColumn": "[measures]",
+            "type": "calculatedTableColumn"
+          }
+        ],
+        "lineageTag": "6b5af269-ed55-43fc-8824-80905386d5e6",
+        "measures": [
+          {
+            "name": "# Customer",
+            "changedProperties": [
+              {
+                "property": "Name"
+              }
+            ],
+            "expression": [
+              "",
+              "COUNTROWS(",
+              "    SUMMARIZE( fct_sales, dim_customer[CustomerKey] )",
+              ")"
+            ],
+            "formatString": "0",
+            "lineageTag": "11ff0e7c-7d27-4e4f-bbac-313ce09cd307"
+          },
+          {
+            "name": "Sales total",
+            "expression": [
+              "",
+              "SUMX(",
+              "    fct_sales,",
+              "    fct_sales[Quantity] * fct_sales[UnitPrice]",
+              ")"
+            ],
+            "lineageTag": "d352b89f-5b05-47f0-b49f-8e539a4623da"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "_measures",
+            "mode": "import",
+            "source": {
+              "expression": "SELECTCOLUMNS( { \"\" }, \"measures\", [Value] )",
+              "type": "calculated"
+            }
+          }
+        ]
       }
     ]
   }
