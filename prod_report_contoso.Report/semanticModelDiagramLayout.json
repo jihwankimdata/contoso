@@ -85,6 +85,32 @@
             "width": 234
           },
           "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 905.27222198248523,
+            "y": 430.3892764236615
+          },
+          "nodeIndex": "_measures",
+          "nodeLineageTag": "6b5af269-ed55-43fc-8824-80905386d5e6",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1189.2722219824852,
+            "y": 430.3892764236615
+          },
+          "nodeIndex": "prm_metrics",
+          "nodeLineageTag": "74531c34-482c-4e43-b58a-be578fc2417a",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
         }
       ],
       "name": "All tables",
